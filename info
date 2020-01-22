@@ -1,0 +1,54 @@
+cEXT :
+5 epoches, direct result
+
+cNEU:
+distilbert-base-uncased
+5 epochs -> {'mcc': -0.14003848936667812,
+ 'tp': 517,
+ 'tn': 546,
+ 'fp': 650,
+ 'fn': 764,
+ 'eval_loss': 3.697997864600151}
+really small loss
+ 3 epochs ->
+ {'mcc': -0.057486778299954765,
+ 'tp': 695,
+ 'tn': 479,
+ 'fp': 717,
+ 'fn': 586,
+ 'eval_loss': 0.8382400396370119}
+ 4 epochs avec learning rate à 1e-3
+ {'mcc': -0.004751339544738071,
+ 'tp': 949,
+ 'tn': 305,
+ 'fp': 891,
+ 'fn': 332,
+ 'eval_loss': 0.7028117512502978}
+roberta-base
+epochs 3
+{'mcc': 0.007656626833397047,
+ 'tp': 1260,
+ 'tn': 22,
+ 'fp': 1174,
+ 'fn': 21,
+ 'eval_loss': 0.6926074004942371}
+albert-base
+epochs 3
+{'mcc': 0.0,
+ 'tp': 0,
+ 'tn': 1239,
+ 'fp': 0,
+ 'fn': 1238,
+ 'eval_loss': 0.7206678808696808}
+
+cCON
+distilbert-base-uncased
+epoch 5
+{'mcc': 0.08536661967776349,
+ 'tp': 469,
+ 'tn': 854,
+ 'fp': 342,
+ 'fn': 812,
+ 'eval_loss': 2.9153911560293166}
+
+
