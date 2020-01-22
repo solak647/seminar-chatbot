@@ -3,21 +3,21 @@ import pandas as pd
 from simpletransformers.classification import ClassificationModel
 
 #labels = ['cEXT','cNEU','cAGR','cCON','cOPN']
-labels = ['cEXT']
+labels = ['cNEU']
 
 models = [
-    #['distilbert', 'distilbert-base-uncased', True],
+    ['distilbert', 'distilbert-base-uncased', True],
     #['distilbert', 'distilbert-base-uncased-distilled-squad', True],
     #['roberta', 'roberta-base', False],
     #['roberta', 'roberta-large', False],
-    ['albert', 'albert-base-v2', False],
+    #['albert', 'albert-base-v2', False],
     #['albert', 'albert-large-v2', False],
-    ['camembert', 'camembert-base', False],
-    ['xlnet', 'xlnet-base-cased', False],
-    ['bert', 'bert-base-uncased', True],
+    #['camembert', 'camembert-base', False],
+    #['xlnet', 'xlnet-base-cased', False],
+    #['bert', 'bert-base-uncased', True],
 ]
 
-epochs = [3,5]
+epochs = [5]
 learning_rates = [4e-5,1e-5]
 
 for label in labels:
