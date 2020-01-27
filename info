@@ -52,3 +52,10 @@ epoch 5
  'eval_loss': 2.9153911560293166}
 
 
+
+BEST MODEL:
+cCON -> distilbert len 256 epoch 5830 1e-5 -> 0.7637, 0.00025, 0.6897 88%
+cEXT -> distilbert len 128 epoch 5 4e-05 -> 0.54 ,...,0.94  77%
+cNEU -> distilbert len 512 epoch 2958 1e-5 -> 0.20, 0.26, 0.79  58%
+cOPN -> roberta selfmade seq length 300 -> 62.89%, 0.22
+cAGR -> roberta selfmade seq length 300 -> 57%, 0.43

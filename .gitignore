@@ -122,3 +122,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+
+/src/roberta-base
+/src/runs
+/src/distilbert_ext
+/src/cache_dir

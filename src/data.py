@@ -38,9 +38,11 @@ def get_data_onelabel(label):
     df3 = df2[['text','labels']]
     data = df4.append(df3, ignore_index=True)
     train_size = 0.8
-    train_dataset=data.sample(frac=train_size,random_state=200).reset_index(drop=True)
-    test_dataset=data.drop(train_dataset.index).reset_index(drop=True)
-
-    train_df = pd.DataFrame(train_dataset, columns=['text', 'labels'])
-    eval_df = pd.DataFrame(test_dataset)
+    #train_dataset=data.sample(frac=train_size).reset_index(drop=True)
+    #test_dataset=data.drop(train_dataset.index).reset_index(drop=True)
+    x_train, x_test, y_train, y_test = train_test_split(data['text'],data['labels'], test_size=0.2, random_state=200)
+    d = {'text': x_train, 'labels': y_train}
+    dd = {'text': x_test, 'labels': y_test}
+    train_df = pd.DataFrame(d, columns=['text', 'labels'])
+    eval_df = pd.DataFrame(dd, columns=['text', 'labels'])
     return train_df, eval_df

@@ -3,7 +3,7 @@ import pandas as pd
 from simpletransformers.classification import ClassificationModel
 
 #labels = ['cEXT','cNEU','cAGR','cCON','cOPN']
-labels = ['cNEU']
+labels = ['cOPN']
 
 models = [
     ['distilbert', 'distilbert-base-uncased', True],
@@ -17,8 +17,8 @@ models = [
     #['bert', 'bert-base-uncased', True],
 ]
 
-epochs = [5]
-learning_rates = [4e-5,1e-5]
+epochs = [8]
+learning_rates = [1e-5]
 
 for label in labels:
     print("Training for label", label)
@@ -35,17 +35,21 @@ for label in labels:
     for model_name in models:
         for epoch in epochs:
             for learning_rate in learning_rates:
-                dir_name = 'outputs/'+str(label)+'_'+str(model_name[1])+'_'+str(epoch)+'_'+str(learning_rate)
+                dir_name = 'outputs/'+str(label)+'_'+str(model_name[1])+'_'+str(epoch)+'_'+str(learning_rate)+'_len256_v1'
                 args = {
                     'output_dir': dir_name,
                     'reprocess_input_data': True,
+                    'evaluate_during_training': True,
                     'num_train_epochs': epoch,
                     'learning_rate': learning_rate,
                     'do_lower_case': model_name[2],
-                    'silent': True,
                     'use_multiprocessing': True,
+                    'overwrite_output_dir': True,
+                    'use_early_stopping': True,
+                    'silent': True,
+                    'max_seq_length': 256,
                 }
                 model = ClassificationModel(model_name[0], model_name[1], num_labels=2, use_cuda=True, args=args)
-                model.train_model(training_dataset)
+                model.train_model(training_dataset, show_running_loss=True, eval_df=testing_dataset)
                 result, model_outputs, wrong_predictions = model.eval_model(testing_dataset)
 
