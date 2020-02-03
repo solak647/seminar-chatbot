@@ -13,7 +13,7 @@ What things you need to install the software and how to install them
 ```
 conda create --name <env> --file requirements.txt
 or
-install pandas, numpy, pytorch, transformers, simpletransformers, ktrain
+install pandas, numpy, pytorch, transformers, simpletransformers, (optional) ktrain
 ```
 
 ## Usage
